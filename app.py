@@ -15,7 +15,8 @@ def similarity(sen1 ,sen2):
 input_text1 = st.text_area("Enter")
 input_text2 = st.text_area("Enter your text here")
 
-
+input_text1 = [input_text1]
+input_text2 = [input_text2]
 
 
 if st.button('Predict'):
