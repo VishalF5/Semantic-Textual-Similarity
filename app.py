@@ -1,30 +1,28 @@
 import streamlit as st
-import tensorflow
-import tensorflow_hub as hub
+from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
-encoder_url = 'https://tfhub.dev/google/universal-sentence-encoder/4' 
 
-encoder = hub.load(encoder_url)
+def countv(sen):
+    cv = CountVectorizer(max_features=5000,stop_words='english')
+    vector = cv.fit_transform(sen).toarray()
+    return sen
 
+def similarity(sen1 ,sen2):
+    score = cosine_similarity(sen1 ,sen2)
+    return score
 
-
-# Calculating Cosine Similarity between two sentences
-def get_similarity(sentence_a, sentence_b):
-    embed_a = encoder([sentence_a])
-    embed_b = encoder([sentence_b])
-    similarity = cosine_similarity(embed_a, embed_b)[0][0]
-    return f'The similarity score between sentence A and sentence B is: "{similarity:.2f}"'
-
-st.title("Text Similarity")
 
 input_text1 = st.text_area("Enter")
 input_text2 = st.text_area("Enter your text here")
 
 
-res = get_similarity(input_text1 ,input_text2)
+
 
 if st.button('Predict'):
+    input_text1.apply(countv)
+    input_text2.apply(countv)
+    res = similarity(input_text1 ,input_text2)
     st.write(res)
 
