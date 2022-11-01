@@ -20,8 +20,8 @@ def get_similarity(sentence_a, sentence_b):
 
 st.title("Text Similarity")
 
-input_text1 = st.text_area("Enter First sentencet")
-input_text2 = st.text_area("Enter  Second Sentence")
+# input_text1 = st.text_area("Enter First sentencet")
+# input_text2 = st.text_area("Enter  Second Sentence")
 
 if st.button('Calculate'):
     input_text1 = st.text_area("Enter First sentencet")
