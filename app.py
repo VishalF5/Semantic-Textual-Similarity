@@ -24,6 +24,8 @@ input_text1 = st.text_area("Enter First sentencet")
 input_text2 = st.text_area("Enter  Second Sentence")
 
 if st.button('Calculate'):
+    input_text1 = st.text_area("Enter First sentencet")
+    input_text2 = st.text_area("Enter  Second Sentence")
     res = get_similarity(input_text1 ,input_text2)
 
     st.write(res)
