@@ -19,7 +19,7 @@ def get_similarity(sentence_a, sentence_b):
 
 st.title("Text Similarity")
 
-input_text1 = st.text_area("Enter your text here")
+input_text1 = st.text_area("Enter")
 input_text2 = st.text_area("Enter your text here")
 
 
