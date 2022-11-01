@@ -4,7 +4,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
 
-cv = CountVectorizer(max_features=5000,stop_words='english')
+cv = CountVectorizer()
 
 
 def similarity(sen1 ,sen2):
