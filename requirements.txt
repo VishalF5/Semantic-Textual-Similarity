@@ -2,3 +2,4 @@ streamlit
 sklearn
 tensorflow
 numpy
+tensorflow_hub
