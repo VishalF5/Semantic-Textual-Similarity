@@ -1,8 +1,6 @@
 import streamlit as st
-import tensorflow
 import tensorflow_hub as hub
 from sklearn.metrics.pairwise import cosine_similarity
-import numpy as np
 
 encoder_url = 'https://tfhub.dev/google/universal-sentence-encoder/4' 
 
