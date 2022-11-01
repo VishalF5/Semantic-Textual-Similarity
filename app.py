@@ -4,10 +4,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
 
-def countv(sen):
-    cv = CountVectorizer(max_features=5000,stop_words='english')
-    vector = cv.fit_transform(sen).toarray()
-    return sen
+cv = CountVectorizer(max_features=5000,stop_words='english')
+
 
 def similarity(sen1 ,sen2):
     score = cosine_similarity(sen1 ,sen2)
@@ -21,8 +19,8 @@ input_text2 = st.text_area("Enter your text here")
 
 
 if st.button('Predict'):
-    input_text1.apply(countv)
-    input_text2.apply(countv)
+    input_text1 = cv.fit_transform(input_text1).toarray()
+    input_text2 = cv.fit_transform(input_text2).toarray()
     res = similarity(input_text1 ,input_text2)
     st.write(res)
 
